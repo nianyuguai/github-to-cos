@@ -95,11 +95,20 @@ async function upload(script) {
     let jsKey = script.key
     let url = script.value
 
-    let js = await downFile(url)
+    let js = await restFile(url)
 
     if (js == null || js == '' || js == undefined) {
         return ''
     }
+
+    let localJs = `${jsKey}`
+    await fs.writeFileSync(localJs, `\ufeff${js}`, 'utf8', async(err) => {
+        if (err) {
+            console.log('write js err.', err)
+        } else {
+            console.log('write js ok')
+        }
+    })
 
     const params = {
         // 桶名
@@ -108,7 +117,7 @@ async function upload(script) {
         // 桶对象
         Key: jsKey,
         // 文件
-        Body: fs.readFileSync(js)
+        Body: fs.readFileSync(localJs)
     }
     await putObjectSync(params)
     console.log(`上传: ${jsKey}`)
