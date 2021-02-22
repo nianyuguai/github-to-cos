@@ -172,7 +172,7 @@ async function downFile(url) {
             responseType: 'stream'
         }).then(res => {
             const rs = res.data
-            local = `/tmp/${name}`
+            local = `${name}`
             const ws = fs.createWriteStream(local)
             rs.pipe(ws)
             // console.log(`下载文件成功: ${name}`)
