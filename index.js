@@ -47,8 +47,7 @@ async function initConfig() {
         }
 
         for (let task of boxJson.task) {
-            let config = task.config
-            let script = config.match(/.*\/(.+?\.js)/)[1];
+            let script = task.match(/.*\/(.+?\.js)/)[1];
             scripts.push({
                 key: script,
                 value: `${item.cdn}/${script}`
