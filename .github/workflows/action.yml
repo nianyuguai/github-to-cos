@@ -1,0 +1,30 @@
+name: sync-jd-script
+
+on: 
+  push:
+  gollum: 
+  schedule: 
+      - cron: '10 */4 * * *'
+
+jobs:
+  one:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    # 使用 node:10
+    - name: use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    # npm install
+    - name: 同步任务
+      env:
+        SECRET_ID: ${{ secrets.SECRET_ID }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        BUCKET: ${{ secrets.BUCKET }}
+        REGION: ${{ secrets.REGION }}
+      run: |
+        npm install
+        node index.js
