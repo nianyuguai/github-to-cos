@@ -74,7 +74,7 @@ async function main() {
 
     let okList = []
     let failList = []
-    await asyncPool(10, scripts, script => new Promise(async(resolve) => {
+    await asyncPool(5, scripts, script => new Promise(async(resolve) => {
         try {
             let sc = await upload(script)
             if(sc){
