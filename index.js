@@ -120,7 +120,7 @@ async function upload(script) {
         Body: fs.readFileSync(localJs)
     }
     await putObjectSync(params)
-    console.log(`上传: ${jsKey}`)
+    //console.log(`上传: ${jsKey}`)
 
     return jsKey
 }
