@@ -4,7 +4,7 @@
 
 ### 一、腾讯云配置桶
 
-* 1、腾讯云创建COS存储桶: 访问权限选择: 公有读私有写。例如区域广州(REGION): ap-guangzhou, 桶名(BUCKET): jd-xxxxxx。
+* 1、腾讯云创建COS存储桶, 访问权限选择: 公有读私有写。例如区域广州(REGION): ap-guangzhou, 桶名(BUCKET): jd-xxxxxx。
 * 2、获取桶API访问密钥: 右上角个人-访问管理-访问密钥-API密钥管理。如果第一次创建, 点击新建密钥
 获取到 SECRET_ID 和 SECRET_KEY
 
