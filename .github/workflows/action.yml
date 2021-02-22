@@ -1,4 +1,4 @@
-name: sync-jd-script
+name: 同步任务
 
 on: 
   push:
